@@ -14,9 +14,12 @@ kalimat = [
     "Ibu Ratna antar ubi."
 ]
 
-# Memeriksa setiap kalimat dan mencetak output yang sesuai
+# Mencetak tabel secara manual
+print("Kalimat                 Output")
+print("--------------------------------")
+# Mengecek setiap kalimat
 for teks in kalimat:
     if is_palindrome(teks):
-        print(teks + " eureeka!")
+        print(f"{teks:20s} eureeka!")
     else:
-        print(teks + " suka blyat")
+        print(f"{teks:20s} suka blyat")
