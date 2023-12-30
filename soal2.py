@@ -17,7 +17,7 @@ kalimat = [
 # Mencetak tabel secara manual
 print("Kalimat                 Output")
 print("--------------------------------")
-# Mengecek setiap kalimat
+# Mengecek setiap kalimat menggunakan fungsi is_palindrome
 for teks in kalimat:
     if is_palindrome(teks):
         print(f"{teks:20s} eureeka!")
