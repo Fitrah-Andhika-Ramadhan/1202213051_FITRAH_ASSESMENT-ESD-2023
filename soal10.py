@@ -1,26 +1,35 @@
 def hitung_kembalian(total_pembayaran, total_belanja):
     kembalian = total_pembayaran - total_belanja
+
+    # Pecahan uang yang tersedia
     pecahan_uang = [100000, 50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100]
 
     hasil_kembalian = {}
 
-    for nominal in pecahan_uang:
-        jumlah = kembalian // nominal
-        if jumlah > 0:
-            hasil_kembalian[str(nominal)] = jumlah
-            kembalian %= nominal
+    for pecahan in pecahan_uang:
+        if kembalian >= pecahan:
+            jumlah_pecahan = kembalian // pecahan
+            kembalian %= pecahan
+            hasil_kembalian[str(pecahan)] = jumlah_pecahan
 
     return hasil_kembalian
 
-# Contoh penggunaan
-total_pembayaran_1, total_belanja_1 = 10000, 7500
-total_pembayaran_2, total_belanja_2 = 5000, 1100
-total_pembayaran_3, total_belanja_3 = 178000, 90500
+# penggunaan fungsi tampilkan_tabel untuk menampilkan tabel    
 
-hasil_kembalian_1 = hitung_kembalian(total_pembayaran_1, total_belanja_1)
-hasil_kembalian_2 = hitung_kembalian(total_pembayaran_2, total_belanja_2)
-hasil_kembalian_3 = hitung_kembalian(total_pembayaran_3, total_belanja_3)
+def tampilkan_tabel(cases):
+    print("{:<20} {:<20} {:<30}".format("Total Pembayaran", "Total Belanja", "Output"))
+    print("-" * 70)
 
-print(hasil_kembalian_1)
-print(hasil_kembalian_2)
-print(hasil_kembalian_3)
+    for case in cases:
+        total_pembayaran, total_belanja = case[0], case[1]
+        kembalian = hitung_kembalian(total_pembayaran, total_belanja)
+        print("{:<20} {:<20} {}".format(total_pembayaran, total_belanja, kembalian))
+
+# penggunaan array untuk menyimpan tabel-tabel yang akan ditampilkan
+cases = [
+    (10000, 7500),
+    (5000, 1100),
+    (178000, 90500)
+]
+
+tampilkan_tabel(cases)
