@@ -36,9 +36,6 @@ body {
   text-decoration: none;
   margin: 0 10px;
 }
-
-
-
 .navbar__menu a {
   color: grey;
   text-decoration: none;
@@ -80,7 +77,6 @@ body {
 .beli-sekarang-btn:hover {
   background-color: #3455db; 
 }
-
 
 .hero {
   display: flex;
